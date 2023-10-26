@@ -22,6 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+var mydataRouter = require('./routes/mydata');
+var computationRouter = require('./routes/computation');  // Include this line
+
+app.use('/mydata', mydataRouter);
+app.use('/computation', computationRouter);  // Include this line
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
